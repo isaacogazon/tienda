@@ -42,13 +42,13 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="<?php echo base_url()?>assets/template/dist/img/avatar5.png" class="user-image" alt="User Image">
-                                <span class="hidden-xs">Isaac Ogazon</span>
+                                <span class="hidden-xs"><?php echo $this->session->userdata("nombre") ?></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="user-body">
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
-                                            <a href="#"> Cerrar Sesión</a>
+                                            <a href="<?php echo base_url()?>auth/logout"> Cerrar Sesión</a>
                                         </div>
                                     </div>
                                     <!-- /.row -->
