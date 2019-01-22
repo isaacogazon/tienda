@@ -16,7 +16,7 @@ class Principal extends CI_Controller {
 	{
             //Cargo todos los productos y se los paso a la vista mediante $data
             $data = array(
-                'productos' => $this->getProductos(),
+                'productos' => $this->listadoproductos_model->getProductos()
             );
             $this->load->view('layouts/header'); 
             $this->load->view('layouts/aside'); 
