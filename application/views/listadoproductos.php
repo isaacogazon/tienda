@@ -15,7 +15,11 @@
                 <!-- Default box -->
                 <div class="box box-solid">
                     <div class="box-body">
-                    Aqui iran todos los productos
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!--contenido -->
+                            </div>
+                        </div>
                     </div>
                     <!-- /.box-body -->
                 </div>

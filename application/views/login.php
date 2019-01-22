@@ -26,7 +26,11 @@
         <!-- /.login-logo -->
         <div class="login-box-body">
             <p class="login-box-msg">Introduzca sus datos de ingreso</p>
-
+            <?php if($this->session->flashdata("error")){
+            echo'<div class="alert alert-danger">';
+                 echo '<p>'. $this->session->flashdata("error");'. </p>';
+            echo '</div>';
+            } ?>
             <form action="<?php echo base_url();?>auth/login" method="post">
                 <div class="form-group has-feedback">
                     <input type="text" class="form-control" placeholder="Usuario" name="nombre">
@@ -38,7 +42,15 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Iniciar Sesión</button>
+                    </div>
+                    <!-- /.col -->
+                </div><br>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <a href="<?php echo base_url()?>principal">
+                            <input type="button"  value="Ver catálogo" class="btn btn-success btn-block btn-flat">
+                        </a>
                     </div>
                     <!-- /.col -->
                 </div>
