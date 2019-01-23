@@ -18,8 +18,28 @@ class Principal extends CI_Controller {
             $data = array(
                 'productos' => $this->listadoproductos_model->getProductos()
             );
+            
+            $categorias = array(
+                'categorias' => $this->listadoproductos_model->getCategorias()
+            );
             $this->load->view('layouts/header'); 
-            $this->load->view('layouts/aside'); 
+            $this->load->view('layouts/aside', $categorias); 
+            $this->load->view('listadoproductos', $data); 
+            $this->load->view('layouts/footer'); 
+	}
+        
+        public function categoria($id_cat)
+	{
+            //Cargo todos los productos y se los paso a la vista mediante $data
+            $data = array(
+                'productos' => $this->listadoproductos_model->categoria($id_cat)
+            );
+            
+            $categorias = array(
+                'categorias' => $this->listadoproductos_model->getCategorias($id_cat)
+            );
+            $this->load->view('layouts/header'); 
+            $this->load->view('layouts/aside', $categorias); 
             $this->load->view('listadoproductos', $data); 
             $this->load->view('layouts/footer'); 
 	}

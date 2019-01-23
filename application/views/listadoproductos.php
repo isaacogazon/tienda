@@ -21,7 +21,7 @@
                         <div class="row">
                             <?php foreach ($productos as $producto): ?>   
                             <div class="col-6 col-md-4" style="margin-top: 25px; box-shadow: 5px 10px 18px #888888; border-radius: 10px;">
-                                    <img class="img-fluid img-portfolio img-hover mb-3" height="220" src="<?= $producto->imagen ?>" alt="Fruta">
+                                <img class="img-fluid img-portfolio img-hover mb-3" height="210" src="<?php echo base_url(). $producto->imagen ?>" alt="<?= $producto->nombre ?>">
                                     <div class="caption">
                                         <h3 class="pull-left"><a href=""><?= $producto->nombre ?></a></h3>
                                         <h4 class="pull-right price-mob">

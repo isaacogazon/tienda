@@ -21,9 +21,9 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="<?php echo base_url(); ?>principal"><i class="fa fa-circle-o"></i> TODOS</a></li>
-                            <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Fruta</a></li>
-                            <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Verdura</a></li>
-                            <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Productos</a></li>
+                            <?php foreach ($categorias as $categoria): ?>
+                                <li><a href="<?php echo base_url(); ?>principal/categoria/<?= $categoria->id ?>"><i class="fa fa-circle-o"></i> <?= $categoria->nombre ?></a></li>
+                            <?php endforeach; ?>
                         </ul>
                     </li>
                     <li class="treeview">
