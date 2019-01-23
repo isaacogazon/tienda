@@ -42,7 +42,11 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="<?php echo base_url()?>assets/template/dist/img/avatar5.png" class="user-image" alt="User Image">
-                                <span class="hidden-xs"><?php echo $this->session->userdata("nombre") ?></span>
+                                <span class="hidden-xs"><?php 
+                                if($this->session->userdata('login') == true){
+                                echo ($this->session->userdata('nombre'));}
+                                else {echo('Inicia Sesión');} ?>
+                                </span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="user-body">

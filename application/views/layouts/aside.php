@@ -8,7 +8,7 @@
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">MENU NAVEGACION</li>
                     <li>
-                        <a href="<?php echo base_url()?>">
+                        <a href="<?php echo base_url()?>principal">
                             <i class="fa fa-home"></i> <span>Inicio</span>
                         </a>
                     </li>
