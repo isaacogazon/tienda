@@ -49,6 +49,7 @@
                                 </span>
                             </a>
                             <ul class="dropdown-menu">
+                                <?php if($this->session->userdata('login')):?>
                                 <li class="user-body">
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
@@ -57,6 +58,8 @@
                                     </div>
                                     <!-- /.row -->
                                 </li>
+                                <?php endif; ?>
+                                <?php if(!$this->session->userdata('login')):?>
                                 <li class="user-body">
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
@@ -64,6 +67,14 @@
                                         </div>
                                     </div>
                                 </li>
+                                <li class="user-body">
+                                    <div class="row">
+                                        <div class="col-xs-12 text-center">
+                                            <a href="<?php echo base_url()?>principal/login"> Crear Usuario</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <?php endif; ?>
                             </ul>
                         </li>
                     </ul>
