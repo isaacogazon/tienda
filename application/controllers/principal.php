@@ -7,6 +7,7 @@ class Principal extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model("listadoproductos_model");
+        //$this->load->model("provincias_model");
 
         /* if(!$this->session->userdata("login")){
           redirect(base_url());
@@ -45,6 +46,17 @@ class Principal extends CI_Controller {
 
     public function login() {
         $this->load->view('login');
+    }
+    
+    public function registrar() {
+        
+        $this->load->model("provincias_model");
+        
+        $provincias = array(
+            'provincias' => $this->provincias_model->provincias()
+        );
+        
+        $this->load->view('registrar_usuario', $provincias);
     }
 
     public function producto($nombre) {

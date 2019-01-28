@@ -70,7 +70,7 @@
                                 <li class="user-body">
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
-                                            <a href="<?php echo base_url()?>principal/login"> Crear Usuario</a>
+                                            <a href="<?php echo base_url()?>principal/registrar"> Crear Usuario</a>
                                         </div>
                                     </div>
                                 </li>
