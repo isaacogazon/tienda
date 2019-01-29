@@ -7,13 +7,12 @@ class Provincias_model extends CI_Model {
     public function provincias() {
         $this->db->select('cod, nombre');
         $provincias = $this->db->get('tbl_provincias');
-        
+
         $res = [];
-        
-        foreach ($provincias->result() as $row)
-            {
-                $res[$row->cod] = $row->cod . $res[$row->nombre] = $row->nombre;
-            }
+
+        foreach ($provincias->result() as $row) {
+            $res[$row->cod] = $row->nombre;
+        }
         return $res;
     }
 

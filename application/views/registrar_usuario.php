@@ -30,34 +30,42 @@
                 <div class="form-group has-feedback">
                     <input type="text" class="form-control" placeholder="Usuario" name="nombre">
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                     <?= form_error('nombre');?>
                 </div>
                 <div class="form-group has-feedback">
                     <input type="text" class="form-control" placeholder="Apellidos" name="apellidos">
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    <?= form_error('apellidos');?>
                 </div>
                 <div class="form-group has-feedback">
                     <input type="password" class="form-control" placeholder="Contraseña" name="contraseña">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    <?= form_error('contraseña');?>
                 </div>
                 <div class="form-group has-feedback">
                     <input type="text" class="form-control" placeholder="DNI" name="dni">
                     <span class="glyphicon glyphicon-briefcase form-control-feedback"></span>
+                    <?= form_error('dni');?>
                 </div>
                 <div class="form-group has-feedback">
                     <input type="text" class="form-control" placeholder="Correo" name="correo">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    <?= form_error('correo');?>
                 </div>
                 <div class="form-group has-feedback">
                     <input type="text" class="form-control" placeholder="Telefono" name="telefono">
                     <span class="glyphicon glyphicon-phone form-control-feedback"></span>
+                    <?= form_error('telefono');?>
                 </div>
                 <div class="form-group has-feedback">
                     <input type="text" class="form-control" placeholder="Direccion" name="direccion">
                     <span class="glyphicon glyphicon-home form-control-feedback"></span>
+                    <?= form_error('direccion');?>
                 </div>
                 <div class="form-group has-feedback">
                     <input type="text" class="form-control" placeholder="CP" name="cp">
                     <span class="glyphicon glyphicon-home form-control-feedback"></span>
+                    <?= form_error('cp');?>
                 </div>
                 <div class="form-group has-feedback">
                     <?php $class = 'class="form-control select2 select2-hidden-accessible" name="provincia"';
