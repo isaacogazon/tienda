@@ -2,15 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Listadoproductos_model extends CI_Model {
-        /**
-         * Funcion que me devuelve todos los productos de la tabla productos donde su estado sea visible.
-         * @return type
-         
-	public function getProductos($num_por_pag){
-            $this->db->where('estado = 1 and stock > 0');
-            $resultados = $this->db->get("productos", $num_por_pag);
-            return $resultados->result();
-        }*/
         
         /**
          * Funcion que me devuelve el id y el nombre de cada una de las categorias
@@ -27,10 +18,19 @@ class Listadoproductos_model extends CI_Model {
          * @param type $cat_id
          * @return type
          */
-        public function categoria($cat_id){
+        public function categoria($cat_id, $num_por_pag){
             $this->db->where('categoria_id',$cat_id);
-            $resultados = $this->db->get("productos");
+            $resultados = $this->db->get("productos", $num_por_pag);
             return $resultados->result();
+        }
+        
+        /**
+         * Funcion que devuelve numero de productos para la paginacion
+         * @return type int
+         */
+        public function num_productosCat($cat_id){
+            $num = $this->db->query("select count(*) as num from productos where categoria_id=".$cat_id)->row()->num;
+            return intval($num);
         }
         
         /**
