@@ -33,6 +33,12 @@
                                 </div>
                             <?php endforeach; ?>
                         </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-xs-offset-4 col-md-3 col-md-offset-5">
+                                <?= $pagination?>
+                            </div>
+                        </div>
+                        
                     </div>
                 <!--</div>-->
             </div>

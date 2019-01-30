@@ -57,7 +57,6 @@ class Auth extends CI_Controller {
             'required' => '<p class="text-danger">Es obligatorio el campo %s.',
             'max_length' => '<p class="text-danger">El campo %s no tiene formato correcto.',
             'alpha_numeric' => '<p class="text-danger">El campo %s no tiene formato correcto, solo numeros y una letra.'
-            
         ));
         $this->form_validation->set_rules('telefono', 'Telefono', 'required|max_length[9]', array(
             'required' => '<p class="text-danger">Es obligatorio el campo %s.',

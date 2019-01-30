@@ -5,12 +5,12 @@ class Listadoproductos_model extends CI_Model {
         /**
          * Funcion que me devuelve todos los productos de la tabla productos donde su estado sea visible.
          * @return type
-         */
-	public function getProductos(){
+         
+	public function getProductos($num_por_pag){
             $this->db->where('estado = 1 and stock > 0');
-            $resultados = $this->db->get("productos");
+            $resultados = $this->db->get("productos", $num_por_pag);
             return $resultados->result();
-        }
+        }*/
         
         /**
          * Funcion que me devuelve el id y el nombre de cada una de las categorias
@@ -43,6 +43,24 @@ class Listadoproductos_model extends CI_Model {
             $resultado = $this->db->get('productos');
             return $resultado->row();
         }
+        /**
+         * Funcion que devuelve numero de productos para la paginacion
+         * @return type int
+         */
+        public function num_productos(){
+            $num = $this->db->query("select count(*) as num from productos")->row()->num;
+            return intval($num);
+        }
         
+        /**
+         * Funcion para pagiacion
+         * @param type $num_por_pag
+         * @return type 
+         */
+        public function getPaginacion($num_por_pag){
+            $this->db->where('estado = 1 and stock > 0');
+            $resultados = $this->db->get("productos", $num_por_pag, $this->uri->segment(3));
+            return $resultados->result();
+        }
         
 }

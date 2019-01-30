@@ -7,22 +7,55 @@ class Principal extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model("listadoproductos_model");
-        //$this->load->model("provincias_model");
-
-        /* if(!$this->session->userdata("login")){
-          redirect(base_url());
-          } */
     }
 
     public function index() {
-        //Cargo todos los productos y se los paso a la vista mediante $data
+       
+        /**
+         * Paginacion
+        **/
+        $this->load->library('pagination');
+        
+        $config['base_url'] = site_url('principal/index');
+        $config['total_rows'] = $this->listadoproductos_model->num_productos();
+        $config['per_page'] = 6;
+        $config['uri_segment'] = 3;
+        $config['num_links'] = 5;
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['first_link'] = false;
+        $config['last_link'] = false;
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['prev_link'] = '&laquo';
+        $config['prev_tag_open'] = '<li class="prev">';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_link'] = '&raquo';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="active"><a href="">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        
+        $this->pagination->initialize($config);
+        
+         //Cargo todos los productos y se los paso a la vista mediante $data
         $data = array(
-            'productos' => $this->listadoproductos_model->getProductos()
+            'productos' => $this->listadoproductos_model->getPaginacion($config['per_page'])
         );
 
         $categorias = array(
             'categorias' => $this->listadoproductos_model->getCategorias()
         );
+
+        $data['pagination'] = $this->pagination->create_links();
+        
+        /*
+         * Cargar vista
+         */
         $this->load->view('layouts/header');
         $this->load->view('layouts/aside', $categorias);
         $this->load->view('listadoproductos', $data);
@@ -30,7 +63,7 @@ class Principal extends CI_Controller {
     }
 
     public function categoria($id_cat) {
-        //Cargo todos los productos y se los paso a la vista mediante $data
+        //Cargo todos los productos y se los paso a la vista mediante $data 
         $data = array(
             'productos' => $this->listadoproductos_model->categoria($id_cat)
         );
@@ -38,6 +71,7 @@ class Principal extends CI_Controller {
         $categorias = array(
             'categorias' => $this->listadoproductos_model->getCategorias()
         );
+        
         $this->load->view('layouts/header');
         $this->load->view('layouts/aside', $categorias);
         $this->load->view('listadoproductos', $data);
