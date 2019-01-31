@@ -59,12 +59,13 @@
 
                                             <!-- Product tab -->
                                             <div class="tab-pane active" id="product" style="margin: 10px;">
-                                                <form enctype="multipart/form-data" action="#" onsubmit="return false;" method="post">
+                                                <form action="<?php echo base_url();?>carrito/inserta" method="post">
 
                                                     <div class="details">
-                                                        <h1><?= $producto->nombre ?></h1>
-                                                        <div class="prices"><span class="price"><?= $producto->precio ?>€</span></div>
-                                                        <div class="prices"><span class="price"><p class="text-danger"><?= $producto->descuento ?>% DESCUENTO</p></span></div>
+                                                        <input type="hidden" name="id" value="<?= $producto->id ?>">
+                                                        <h1><?= $producto->nombre ?></h1><input type="hidden" name="nombre" value="<?= $producto->nombre ?>">
+                                                        <div class="prices"><span class="price"><?= $producto->precio ?>€<input type="hidden" name="precio" value="<?= $producto->precio ?>"></span></div>
+                                                        <div class="prices"><span class="price"><p class="text-danger"><?= $producto->descuento ?>% DESCUENTO<input type="hidden" name="descuento" value="<?= $producto->descuento ?>"></p></span></div>
                                                     </div>
                                                     <div class="short-description">
                                                         <p><?= $producto->descripcion ?></p>
@@ -74,8 +75,8 @@
                                                         <span class="glyphicon glyphicon-share-alt form-control-feedback"></span>
                                                     </div>
                                                     <div class="add-to-cart">
-                                                        <button class="btn btn-success btn-lg btn-block-xs" data-toggle="modal" data-target="#added">
-                                                            <i class="fa fa-plus"></i> &nbsp; Add to cart
+                                                        <button type="submit" class="btn btn-success btn-lg btn-block-xs" data-toggle="modal" data-target="#added">
+                                                            <!--<a href="<?//php echo base_url()?>carrito/inserta" style="color: white;">--><i class="fa fa-plus"></i> &nbsp; Añadir al carrito<!--</a>-->
                                                         </button>
                                                     </div>
                                                 </form>						
