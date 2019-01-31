@@ -8,10 +8,19 @@ class Carrito extends CI_Controller {
         parent::__construct();
         $this->load->library('cart');
         $this->load->model('carrito_model');
+        $this->load->model("listadoproductos_model");
     }
 
     public function index() {
+        
+        $categorias = array(
+            'categorias' => $this->listadoproductos_model->getCategorias()
+        );
+        
+        $this->load->view('layouts/header');
+        $this->load->view('layouts/aside', $categorias);
         $this->load->view('carrito');
+        $this->load->view('layouts/footer');
         
     }
 
@@ -27,13 +36,29 @@ class Carrito extends CI_Controller {
             'price' => $precio,
             'name' => $nombre
         );
+        
+        $categorias = array(
+            'categorias' => $this->listadoproductos_model->getCategorias()
+        );
+        
         $this->cart->insert($data);
+        $this->load->view('layouts/header');
+        $this->load->view('layouts/aside', $categorias);
         $this->load->view('carrito');
+        $this->load->view('layouts/footer'); 
         
     }
     
     public function mostrarCarrito(){
+        $categorias = array(
+            'categorias' => $this->listadoproductos_model->getCategorias()
+        );
+        
+        $this->cart->insert($data);
+        $this->load->view('layouts/header');
+        $this->load->view('layouts/aside', $categorias);
         $this->load->view('carrito');
+        $this->load->view('layouts/footer');
     }
     
     public function vaciarCarrito(){
@@ -44,7 +69,16 @@ class Carrito extends CI_Controller {
     public function actualizarCarrito(){
         $data = $this->input->post();
         $this->cart->update($data);
+        
+        $categorias = array(
+            'categorias' => $this->listadoproductos_model->getCategorias()
+        );
+        
+        $this->cart->insert($data);
+        $this->load->view('layouts/header');
+        $this->load->view('layouts/aside', $categorias);
         $this->load->view('carrito');
+        $this->load->view('layouts/footer');
     }
 
 }

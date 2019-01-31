@@ -101,7 +101,11 @@ class Auth extends CI_Controller {
     }
 
     public function logout() {
-        $this->session->sess_destroy();
+        $data = array(
+                'login' => false
+            );
+        
+        $this->session->set_userdata($data);
         redirect(base_url() . 'principal');
     }
 
