@@ -58,6 +58,22 @@
                                     </div>
                                     <!-- /.row -->
                                 </li>
+                                <li class="user-body">
+                                    <div class="row">
+                                        <div class="col-xs-12 text-center">
+                                            <a href="<?php echo base_url()?>auth/modificar"> Modificar Contraseña</a>
+                                        </div>
+                                    </div>
+                                    <!-- /.row -->
+                                </li>
+                                <li class="user-body">
+                                    <div class="row">
+                                        <div class="col-xs-12 text-center">
+                                            <a href="<?php echo base_url()?>auth/modificarUsuario"> Modificar Usuario</a>
+                                        </div>
+                                    </div>
+                                    <!-- /.row -->
+                                </li>
                                 <?php endif; ?>
                                 <?php if(!$this->session->userdata('login')):?>
                                 <li class="user-body">

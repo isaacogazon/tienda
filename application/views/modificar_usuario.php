@@ -6,7 +6,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Registrar Usuario
+            Modificar Usuario
         </h1>
     </section>
     <!-- Main content -->
@@ -20,45 +20,40 @@
                     </div>
                     <!-- /.login-logo -->
                     <div class="login-box-body">
-                        <p class="login-box-msg">Introduzca sus datos para darse de alta como usuario</p>
-                        <form action="<?php echo base_url(); ?>auth/registrar" method="post">
+                        <p class="login-box-msg">Modifique los datos que desee necesario</p>
+                        <form action="<?php echo base_url(); ?>auth/modificarUsuario" method="post">
                             <div class="form-group has-feedback">
-                                <input type="text" class="form-control" placeholder="Usuario" value="<?php echo!empty($_POST['nombre']) ? $_POST['nombre'] : "" ?>" name="nombre">
+                                <input type="text" class="form-control" placeholder="Usuario" value="<?php echo!empty($_POST['nombre']) ? $_POST['nombre'] : $datos->nombre ?>" name="nombre">
                                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
                                 <?= form_error('nombre'); ?>
                             </div>
                             <div class="form-group has-feedback">
-                                <input type="text" class="form-control" placeholder="Apellidos" value="<?php echo!empty($_POST['apellidos']) ? $_POST['apellidos'] : "" ?>" name="apellidos">
+                                <input type="text" class="form-control" placeholder="Apellidos" value="<?php echo!empty($_POST['apellidos']) ? $_POST['apellidos'] : $datos->apellidos ?>" name="apellidos">
                                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
                                 <?= form_error('apellidos'); ?>
                             </div>
                             <div class="form-group has-feedback">
-                                <input type="password" class="form-control" placeholder="Contraseña" value="<?php echo!empty($_POST['contraseña']) ? $_POST['contraseña'] : "" ?>" name="contraseña">
-                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                                <?= form_error('contraseña'); ?>
-                            </div>
-                            <div class="form-group has-feedback">
-                                <input type="text" class="form-control" placeholder="DNI" value="<?php echo!empty($_POST['dni']) ? $_POST['dni'] : "" ?>" name="dni">
+                                <input type="text" class="form-control" placeholder="DNI" value="<?php echo!empty($_POST['dni']) ? $_POST['dni'] : $datos->dni ?>" name="dni">
                                 <span class="glyphicon glyphicon-briefcase form-control-feedback"></span>
                                 <?= form_error('dni'); ?>
                             </div>
                             <div class="form-group has-feedback">
-                                <input type="text" class="form-control" placeholder="Correo" value="<?php echo!empty($_POST['correo']) ? $_POST['correo'] : "" ?>" name="correo">
+                                <input type="text" class="form-control" placeholder="Correo" value="<?php echo!empty($_POST['correo']) ? $_POST['correo'] : $datos->correo ?>" name="correo">
                                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                                 <?= form_error('correo'); ?>
                             </div>
                             <div class="form-group has-feedback">
-                                <input type="text" class="form-control" placeholder="Telefono" value="<?php echo!empty($_POST['telefono']) ? $_POST['telefono'] : "" ?>" name="telefono">
+                                <input type="text" class="form-control" placeholder="Telefono" value="<?php echo!empty($_POST['telefono']) ? $_POST['telefono'] : $datos->telefono ?>" name="telefono">
                                 <span class="glyphicon glyphicon-phone form-control-feedback"></span>
                                 <?= form_error('telefono'); ?>
                             </div>
                             <div class="form-group has-feedback">
-                                <input type="text" class="form-control" placeholder="Direccion" name="direccion">
+                                <input type="text" class="form-control" placeholder="Direccion" value="<?php echo!empty($_POST['direccion']) ? $_POST['direccion'] : $datos->direccion ?>" name="direccion">
                                 <span class="glyphicon glyphicon-home form-control-feedback"></span>
                                 <?= form_error('direccion'); ?>
                             </div>
                             <div class="form-group has-feedback">
-                                <input type="text" class="form-control" placeholder="CP" value="<?php echo!empty($_POST['cp']) ? $_POST['cp'] : "" ?>" name="cp">
+                                <input type="text" class="form-control" placeholder="CP" value="<?php echo!empty($_POST['cp']) ? $_POST['cp'] : $datos->cp ?>" name="cp">
                                 <span class="glyphicon glyphicon-home form-control-feedback"></span>
                                 <?= form_error('cp'); ?>
                             </div>
@@ -69,7 +64,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <button type="submit" class="btn btn-primary btn-block btn-flat">Registrar</button>
+                                    <button type="submit" class="btn btn-primary btn-block btn-flat">Modificar</button>
                                 </div>
                                 <!-- /.col -->
                             </div><br>
@@ -91,3 +86,4 @@
         </div>
     </section>
 </div>
+

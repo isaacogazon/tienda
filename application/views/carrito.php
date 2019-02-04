@@ -55,7 +55,7 @@
                             <td><!--<button type="submit">Actualizar el carrito</button>-->
                                 <div class="col-xs-3">
                                     <a href="<?php echo base_url() ?>principal">
-                                        <input type="submit"  value="Actualizar carrito" class="btn btn-success btn-block btn-flat">
+                                        <input type="submit"  value="Actualizar carrito" class="btn btn-primary btn-block btn-flat">
                                     </a>
                                 </div>
                                 <div class="col-xs-3">
@@ -65,7 +65,7 @@
                                 </div>
                                 <div class="col-xs-3">
                                     <a href="<?php base_url() ?>vaciarCarrito">
-                                        <input type="button"  value="Vaciar el carrito" class="btn btn-success btn-block btn-flat">
+                                        <input type="button"  value="Vaciar el carrito" class="btn btn-danger btn-block btn-flat">
                                     </a>
                                 </div>
                             </td>

@@ -23,7 +23,9 @@ class Carrito extends CI_Controller {
         $this->load->view('layouts/footer');
         
     }
-
+    /**
+     * Funcion que inserta productos en el carrito mediante un array
+     */
     public function inserta() {
         $id = $this->input->post("id");
         $nombre = $this->input->post("nombre");
@@ -42,6 +44,7 @@ class Carrito extends CI_Controller {
         );
         
         $this->cart->insert($data);
+        
         $this->load->view('layouts/header');
         $this->load->view('layouts/aside', $categorias);
         $this->load->view('carrito');
