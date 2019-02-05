@@ -21,7 +21,7 @@ class Usuario_model extends CI_Model {
         $datos = array(
             'nombre' => $nombre,
             'apellidos' => $apellidos,
-            'contraseña' => $contraseña,
+            'contraseña' => md5($contraseña),
             'dni' => $dni,
             'telefono' => $telefono,
             'direccion' => $direccion,
@@ -58,25 +58,24 @@ class Usuario_model extends CI_Model {
         $this->db->where("nombre", $this->session->userdata('nombre'));
         $this->db->update('clientes', $contra);
     }
-    
-    public function dameCorreo(){
-        $rs=$this->db->query("select correo from clientes where id=" . $this->session->userdata('id'));
-        
-        $reg=$rs->row();
-        
+
+    public function dameCorreo() {
+        $rs = $this->db->query("select correo from clientes where id=" . $this->session->userdata('id'));
+
+        $reg = $rs->row();
+
         return $reg->correo;
-        
     }
-    
-    public function datos(){
-        $rs=$this->db->query("select nombre, apellidos, contraseña, dni, telefono, direccion, cp, provincia, correo from clientes where id=" . $this->session->userdata('id'));
-        
-        $reg=$rs->row();
-        
+
+    public function datos() {
+        $rs = $this->db->query("select nombre, apellidos, contraseña, dni, telefono, direccion, cp, provincia, correo from clientes where id=" . $this->session->userdata('id'));
+
+        $reg = $rs->row();
+
         return $reg;
     }
-    
-    public function modificarDatos($nombre, $apellidos, /*$contraseña, */$dni, $telefono, $direccion, $cp, $provincia, $correo){
+
+    public function modificarDatos($nombre, $apellidos, /* $contraseña, */ $dni, $telefono, $direccion, $cp, $provincia, $correo) {
         $datos = array(
             'nombre' => $nombre,
             'apellidos' => $apellidos,
@@ -90,6 +89,11 @@ class Usuario_model extends CI_Model {
         );
         $this->db->where("nombre", $this->session->userdata('nombre'));
         $this->db->update('clientes', $datos);
+    }
+
+    public function borrarUsuario() {
+        $this->db->where('id', $this->session->userdata('id'));
+        $this->db->delete('clientes');
     }
 
 }

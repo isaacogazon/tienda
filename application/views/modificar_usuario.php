@@ -58,8 +58,9 @@
                                 <?= form_error('cp'); ?>
                             </div>
                             <div class="form-group has-feedback">
-                                <?php $class = 'class="form-control select2 select2-hidden-accessible" name="provincia"';
-                                echo form_dropdown('provincia', $provincias, '', $class);
+                                <?php
+                                $class = 'class="form-control select2 select2-hidden-accessible" name="provincia"';
+                                echo form_dropdown('provincia', $provincias, $datos->provincia, $class);
                                 ?>
                             </div>
                             <div class="row">
@@ -68,6 +69,37 @@
                                 </div>
                                 <!-- /.col -->
                             </div><br>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <button type="button" class="btn btn-danger btn-block btn-flat" data-toggle="modal" data-target="#miModal">Borrar Usuario</button>
+                                </div>
+                                <!-- /.col -->
+                            </div><br>
+
+                            <!--Inicio ventana emergente -->
+                            <div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <h4 class="modal-title" id="myModalLabel">¿Seguro que quieres borrar al usuario <?php echo $this->session->userdata('nombre') ?>?</h4>
+                                            <div class="col-xs-3">
+                                                <a href="<?php site_url() ?>baja"><button type="button" class="btn btn-danger btn-block btn-flat">SI</button></a>
+                                            </div>
+                                            <div class="col-xs-3 offset-1">
+                                                <a href="<?php site_url() ?>"><button type="button" class="btn btn-success btn-block btn-flat">NO</button></a>
+                                            </div>
+                                        </div>
+                                        <div class="modal-body">
+                                            Perderas todos los datos de éste usuario.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fin ventana emergente-->
+
                             <div class="row">
                                 <div class="col-xs-12">
                                     <a href="<?php echo base_url() ?>principal">

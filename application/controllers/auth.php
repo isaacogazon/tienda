@@ -32,12 +32,12 @@ class Auth extends CI_Controller {
 
     public function login() {
         $nombre = $this->input->post("nombre");
-        $contraseña = $this->input->post("contraseña");
+        $contraseña = md5($this->input->post("contraseña"));
         $res = $this->usuario_model->login($nombre, $contraseña);
 
         if (!$res) {
             $this->session->set_flashdata("error", "El usuario y/o contraseña son incorrectos");
-
+            echo $contraseña;
             $this->load->model("provincias_model");
 
 
@@ -157,9 +157,9 @@ class Auth extends CI_Controller {
         $ponercorreo = $this->usuario_model->dameCorreo();
 
         $correo = $this->input->post("correo");
-        $contraseña = $this->input->post("contraseña");
-        $contraseñanueva = $this->input->post("contraseñanueva");
-        $confirmacontraseña = $this->input->post("confirmacontrasena");
+        $contraseña = md5($this->input->post("contraseña"));
+        $contraseñanueva = md5($this->input->post("contraseñanueva"));
+        $confirmacontraseña = md5($this->input->post("confirmacontrasena"));
 
         if ($this->form_validation->run() == FALSE) {
 
@@ -171,7 +171,6 @@ class Auth extends CI_Controller {
             $this->load->view('layouts/aside', $categorias);
             $this->load->view('modificarcontrasena', ['ponercorreo' => $ponercorreo]);
             $this->load->view('layouts/footer');
-            
         } else {
             if ($contraseñanueva == $confirmacontraseña && $this->usuario_model->compruebacontraseña($correo, $contraseña)) {
 
@@ -201,9 +200,9 @@ class Auth extends CI_Controller {
         $this->form_validation->set_rules('apellidos', 'Apellidos', 'required', array(
             'required' => '<p class="text-danger">Es obligatorio el campo %s.'
         ));
-        /*$this->form_validation->set_rules('contraseña', 'Contraseña', 'required', array(
-            'required' => '<p class="text-danger">Es obligatorio el campo %s.'
-        ));*/
+        /* $this->form_validation->set_rules('contraseña', 'Contraseña', 'required', array(
+          'required' => '<p class="text-danger">Es obligatorio el campo %s.'
+          )); */
         $this->form_validation->set_rules('dni', 'DNI', 'required|max_length[9]|alpha_numeric', array(
             'required' => '<p class="text-danger">Es obligatorio el campo %s.',
             'max_length' => '<p class="text-danger">El campo %s no tiene formato correcto.',
@@ -246,7 +245,7 @@ class Auth extends CI_Controller {
             $categorias = array(
                 'categorias' => $this->listadoproductos_model->getCategorias()
             );
-            
+
             $datos['datos'] = $this->usuario_model->datos();
             $datos['provincias'] = $provincias;
 
@@ -255,7 +254,7 @@ class Auth extends CI_Controller {
             $this->load->view('modificar_usuario', $datos);
             $this->load->view('layouts/footer');
         } else {
-            $this->usuario_model->modificarDatos($nombre, $apellidos, /*$contraseña,*/ $dni, $telefono, $direccion, $cp, $provincia, $correo);
+            $this->usuario_model->modificarDatos($nombre, $apellidos, /* $contraseña, */ $dni, $telefono, $direccion, $cp, $provincia, $correo);
             redirect(base_url() . 'principal');
         }
     }
@@ -274,6 +273,12 @@ class Auth extends CI_Controller {
             return true;
         }
         return FALSE;
+    }
+
+    public function baja() {
+        $this->usuario_model->borrarUsuario();
+        session_destroy();
+        redirect(base_url() . 'principal');
     }
 
 }
