@@ -9,7 +9,7 @@
         <!-- Default box -->
         <div class="box box-solid">
             <div class="box-body">
-                <form action="<?php base_url() ?>actualizarCarrito" method="post">
+                <form action="<?php echo site_url('carrito/actualizarCarrito') ?>" method="post">
                     <table class="table">
                         <thead class="thead-dark">
                             <tr>
@@ -21,10 +21,12 @@
                         </thead>
                         <?php $i = 1; ?>
                         <?php foreach ($this->cart->contents() as $items): ?>
-                            <?php echo form_hidden($i . '[rowid]', $items['rowid']); ?>
+
                             <tr>
                                 <td><?php
-                                    echo form_input(array('name' => $i . '[qty]',
+                                    echo form_hidden($i . '[rowid]', $items['rowid']);
+                                    echo form_input(array(
+                                        'name' => $i . '[qty]',
                                         'value' => $items['qty'],
                                         'maxlength' => '3',
                                         'size' => '5'));
@@ -37,7 +39,7 @@
                                             <?php foreach ($this->cart->product_options($items['rowid']) as $option_name => $option_value):
                                                 ?>
                                                 <strong><?php echo $option_name; ?>:</strong>
-                                                <?php echo $option_value; ?><br />
+                                                <?php echo $option_value; ?><br/>
                                             <?php endforeach; ?>
                                         </p>
                                     <?php endif; ?>
@@ -54,17 +56,17 @@
                         <tr>
                             <td><!--<button type="submit">Actualizar el carrito</button>-->
                                 <div class="col-xs-3">
-                                    <a href="<?php echo base_url() ?>principal">
+                                    <a href="<?php echo site_url('carrito/actualizarCarrito')?>">
                                         <input type="submit"  value="Actualizar carrito" class="btn btn-primary btn-block btn-flat">
                                     </a>
                                 </div>
                                 <div class="col-xs-3">
-                                    <a href="<?php echo base_url() ?>principal">
+                                    <a href="<?php echo site_url('principal') ?>">
                                         <input type="button"  value="Ver catálogo" class="btn btn-success btn-block btn-flat">
                                     </a>
                                 </div>
                                 <div class="col-xs-3">
-                                    <a href="<?php base_url() ?>vaciarCarrito">
+                                    <a href="<?php echo site_url('carrito/vaciarCarrito') ?>">
                                         <input type="button"  value="Vaciar el carrito" class="btn btn-danger btn-block btn-flat">
                                     </a>
                                 </div>

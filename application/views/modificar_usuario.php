@@ -21,7 +21,7 @@
                     <!-- /.login-logo -->
                     <div class="login-box-body">
                         <p class="login-box-msg">Modifique los datos que desee necesario</p>
-                        <form action="<?php echo base_url(); ?>auth/modificarUsuario" method="post">
+                        <form action="<?php echo site_url(); ?>/auth/modificarUsuario" method="post">
                             <div class="form-group has-feedback">
                                 <input type="text" class="form-control" placeholder="Usuario" value="<?php echo!empty($_POST['nombre']) ? $_POST['nombre'] : $datos->nombre ?>" name="nombre">
                                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -86,7 +86,7 @@
                                             </button>
                                             <h4 class="modal-title" id="myModalLabel">¿Seguro que quieres borrar al usuario <?php echo $this->session->userdata('nombre') ?>?</h4>
                                             <div class="col-xs-3">
-                                                <a href="<?php site_url() ?>baja"><button type="button" class="btn btn-danger btn-block btn-flat">SI</button></a>
+                                                <a href="<?php site_url() ?>/auth/baja"><button type="button" class="btn btn-danger btn-block btn-flat">SI</button></a>
                                             </div>
                                             <div class="col-xs-3 offset-1">
                                                 <a href="<?php site_url() ?>"><button type="button" class="btn btn-success btn-block btn-flat">NO</button></a>
@@ -102,7 +102,7 @@
 
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <a href="<?php echo base_url() ?>principal">
+                                    <a href="<?php echo site_url() ?>principal">
                                         <input type="button"  value="Ver catálogo" class="btn btn-success btn-block btn-flat">
                                     </a>
                                 </div>

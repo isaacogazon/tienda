@@ -21,7 +21,7 @@
         <div class="wrapper">
             <header class="main-header">
                 <!-- Logo -->
-                <a href="<?php echo base_url(); ?>" class="logo">
+                <a href="<?php echo site_url(); ?>" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini"><b>T</b>O</span>
                     <!-- logo for regular state and mobile devices -->
@@ -40,12 +40,14 @@
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
                             <!-- User Account: style can be found in dropdown.less -->
-
+                            <a href="<?php echo site_url();?>/carrito" class="btn btn-info btn-lg">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                            </a>
                             <li class="dropdown user user-menu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown">
                                     <img src="<?php echo base_url() ?>assets/template/dist/img/avatar5.png" class="user-image" alt="User Image">
                                     <span class="hidden-xs"><?php
-                                        if ($this->session->userdata('login') == true) {
+                                        if ($this->session->userdata('login')) {
                                             echo ($this->session->userdata('nombre'));
                                         } else {
                                             echo('Inicia Sesión');
@@ -58,7 +60,7 @@
                                         <li class="user-body">
                                             <div class="row">
                                                 <div class="col-xs-12 text-center">
-                                                    <a href="<?php echo base_url() ?>auth/logout"> Cerrar Sesión</a>
+                                                    <a href="<?php echo site_url() ?>/auth/logout"> Cerrar Sesión</a>
                                                 </div>
                                             </div>
                                             <!-- /.row -->
@@ -66,7 +68,7 @@
                                         <li class="user-body">
                                             <div class="row">
                                                 <div class="col-xs-12 text-center">
-                                                    <a href="<?php echo base_url() ?>auth/modificar"> Modificar Contraseña</a>
+                                                    <a href="<?php echo site_url() ?>/auth/modificar"> Modificar Contraseña</a>
                                                 </div>
                                             </div>
                                             <!-- /.row -->
@@ -74,7 +76,7 @@
                                         <li class="user-body">
                                             <div class="row">
                                                 <div class="col-xs-12 text-center">
-                                                    <a href="<?php echo base_url() ?>auth/modificarUsuario"> Modificar Usuario</a>
+                                                    <a href="<?php echo site_url() ?>/auth/modificarUsuario"> Modificar Usuario</a>
                                                 </div>
                                             </div>
                                             <!-- /.row -->
@@ -84,14 +86,14 @@
                                         <li class="user-body">
                                             <div class="row">
                                                 <div class="col-xs-12 text-center">
-                                                    <a href="<?php echo base_url() ?>principal/login"> Iniciar Sesión</a>
+                                                    <a href="<?php echo site_url() ?>/principal/login"> Iniciar Sesión</a>
                                                 </div>
                                             </div>
                                         </li>
                                         <li class="user-body">
                                             <div class="row">
                                                 <div class="col-xs-12 text-center">
-                                                    <a href="<?php echo base_url() ?>principal/registrar"> Crear Usuario</a>
+                                                    <a href="<?php echo site_url() ?>/principal/registrar"> Crear Usuario</a>
                                                 </div>
                                             </div>
                                         </li>

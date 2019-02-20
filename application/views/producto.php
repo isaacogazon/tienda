@@ -59,7 +59,7 @@
 
                                             <!-- Product tab -->
                                             <div class="tab-pane active" id="product" style="margin: 10px;">
-                                                <form action="<?php echo base_url();?>carrito/inserta" method="post">
+                                                <form action="<?php echo site_url();?>/carrito/inserta" method="post">
 
                                                     <div class="details">
                                                         <input type="hidden" name="id" value="<?= $producto->id ?>">
@@ -71,7 +71,7 @@
                                                         <p><?= $producto->descripcion ?></p>
                                                     </div>
                                                     <div class="col-5 form-group has-feedback">
-                                                        <input type="text" class="form-control" placeholder="Cantidad" name="cantidad">
+                                                        <input type="text" class="form-control" value="1" name="cantidad">
                                                         <span class="glyphicon glyphicon-share-alt form-control-feedback"></span>
                                                     </div>
                                                     <div class="add-to-cart">

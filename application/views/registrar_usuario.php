@@ -21,7 +21,7 @@
                     <!-- /.login-logo -->
                     <div class="login-box-body">
                         <p class="login-box-msg">Introduzca sus datos para darse de alta como usuario</p>
-                        <form action="<?php echo base_url(); ?>auth/registrar" method="post">
+                        <form action="<?php echo site_url(); ?>/auth/registrar" method="post">
                             <div class="form-group has-feedback">
                                 <input type="text" class="form-control" placeholder="Usuario" value="<?php echo!empty($_POST['nombre']) ? $_POST['nombre'] : "" ?>" name="nombre">
                                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -75,7 +75,7 @@
                             </div><br>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <a href="<?php echo base_url() ?>principal">
+                                    <a href="<?php echo site_url() ?>/principal">
                                         <input type="button"  value="Ver catálogo" class="btn btn-success btn-block btn-flat">
                                     </a>
                                 </div>

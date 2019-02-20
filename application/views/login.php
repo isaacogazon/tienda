@@ -29,7 +29,7 @@
                             echo '</div>';
                         }
                         ?>
-                        <form action="<?php echo base_url(); ?>auth/login" method="post">
+                        <form action="<?php echo site_url(); ?>/auth/login" method="post">
                             <div class="form-group has-feedback">
                                 <input type="text" class="form-control" placeholder="Usuario" name="nombre" value="<?php echo!empty($_POST['nombre']) ? $_POST['nombre'] : "" ?>">
                                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -46,7 +46,7 @@
                             </div><br>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <a href="<?php echo base_url() ?>principal">
+                                    <a href="<?php echo site_url() ?>/principal">
                                         <input type="button"  value="Ver catálogo" class="btn btn-success btn-block btn-flat">
                                     </a>
                                 </div>
