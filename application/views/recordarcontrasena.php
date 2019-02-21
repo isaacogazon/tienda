@@ -40,7 +40,7 @@
                             </div><br>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <a href="<?php echo site_url() ?>principal">
+                                    <a href="<?php echo site_url() ?>/principal">
                                         <input type="button"  value="Ver catálogo" class="btn btn-success btn-block btn-flat">
                                     </a>
                                 </div>
