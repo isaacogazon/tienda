@@ -38,6 +38,9 @@
                                 <input type="password" class="form-control" placeholder="Password" name="contraseña" value="<?php echo!empty($_POST['contraseña']) ? $_POST['contraseña'] : "" ?>">
                                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                             </div>
+                            <div class="form-group has-feedback">
+                                <a href="<?php echo site_url(); ?>/auth/recordar"<p class="primary">¿Has olvidado la contraseña?</p>
+                            </div>
                             <div class="row">
                                 <div class="col-xs-12">
                                     <button type="submit" class="btn btn-primary btn-block btn-flat">Iniciar Sesión</button>

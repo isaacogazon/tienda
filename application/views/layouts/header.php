@@ -76,6 +76,14 @@
                                         <li class="user-body">
                                             <div class="row">
                                                 <div class="col-xs-12 text-center">
+                                                    <a href="<?php echo site_url() ?>/auth/recordar"> Recordar Contraseña</a>
+                                                </div>
+                                            </div>
+                                            <!-- /.row -->
+                                        </li>
+                                        <li class="user-body">
+                                            <div class="row">
+                                                <div class="col-xs-12 text-center">
                                                     <a href="<?php echo site_url() ?>/auth/modificarUsuario"> Modificar Usuario</a>
                                                 </div>
                                             </div>

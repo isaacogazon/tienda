@@ -6,7 +6,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Iniciar sesión
+            Modificar contraseña
         </h1>
     </section>
     <!-- Main content -->
@@ -20,7 +20,7 @@
                     </div>
                     <!-- /.login-logo -->
                     <div class="login-box-body">
-                        <p class="login-box-msg">Introduzca sus datos para darse de alta como usuario</p>
+                        <p class="login-box-msg">Introduzca los datos necesarios para modificar la contraseña</p>
                         <form action="<?php echo site_url(); ?>/auth/modificar" method="post">
                             <div class="form-group has-feedback">
                                 <input type="text" class="form-control" placeholder="Correo" value="<?php echo!empty($_POST['correo']) ? $_POST['correo'] : $ponercorreo ?>" name="correo">
